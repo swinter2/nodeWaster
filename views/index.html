@@ -2,18 +2,28 @@
 <html ng-app='wastedApp'>
 <head>
     <title>Time Waster</title>
-
-    <script src='/static/scripts/angular.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="/static/styles/stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="/static/styles/stylesheets/screen.css" media="screen,projection">
+    
 </head>
 <body>
 
-    <div ng-controller='Wasted' ng-cloak>
-        {{ hello }}
+    <div class="container">
+
+        <div id="wastedController" ng-controller='Wasted' ng-cloak>
+
+            <p ng-bind="total.toHHMMSS()"></p>
+
+            <button ng-click="start()" ng-disabled="active">Start</button>
+            <button ng-click="stop()" ng-disabled="!active">Stop</button>
+        </div>
+
     </div>
 
+    <script src='/static/scripts/angular.min.js'></script>
     <script src='/static/scripts/angular-route.min.js'></script>
     <script src='/static/scripts/wasted/app.js'></script>
     <script src='/static/scripts/wasted/controllers/wasted.js'></script>
-
 </body>
 </html>
+

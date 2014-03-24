@@ -4,3 +4,35 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "susy";
+
+$font: 14px;
+$lineheight: 18px;
+
+@function pxtoem($px, $basepx) {
+    @return ($px/$basepx)+0em;
+}
+
+$column-width: 4em;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: 1em;
+$container-style: magic;
+$container-width: pxtoem(1140px, $font);
+
+$iphone-landscape: pxtoem(480px, $font);
+$iphone-portrait: pxtoem(320px, $font);
+$ipad-landscape: pxtoem(1024px, $font);
+$ipad-portrait: pxtoem(768px, $font);
+$mobile-portrait: pxtoem(600px, $font);
+
+.container {
+    @include container;
+}
+
+body {
+
+    #wastedController {
+        @include span-columns(12 omega, 12);
+    }
+}
