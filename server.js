@@ -2,23 +2,27 @@ var express = require('express')
     ,fs = require('fs')
     ,logfmt = require("logfmt")
     ,userController = require('./controllers/userController')
+    ,sessionController = require('./controllers/sessionController')
     ;
 var app = express();
 
 app.use(logfmt.requestLogger());
 
 app.use("/static", express.static('./static'));
-// app.use("/", express.static('./views'));
 
 ////////////////////////////////////////////////////////////////////////////////////
 app.post('/user/get', userController.get);
 app.post('/user/save', userController.save);
 app.post('/user/create', userController.create);
+app.post('/session/get', sessionController.get);
+app.post('/session/save', sessionController.save);
 
 app.get('/', function (req, res, next) {
-    fs.readFile('./views/index.html', function (err, data) {
-        res.end(data);
-    });
+    res.send("ldkjflksajfsd");
+
+    // fs.readFile('./views/index.html', function (err, data) {
+    //     res.end(data);
+    // });
 });
 
 app.use(function(req, res, next){
